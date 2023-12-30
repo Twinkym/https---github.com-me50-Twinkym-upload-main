@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <style>
+        body {
+            font: 14px Arial;
+        }
+
+        #search-container {
+            max-width: 600px;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            width: calc(100% - 150px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+
+        input[type="submit"],
+        #lucky-btn {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background-color: #379dff;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1a0dab;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="search-container">
+        <!-- Google Search Page-->
+        <form action="https://www.google.com/search" method="get">
+            <input type="text" id="search-query" name="q" value="" title="Search" aria-label="Search"
+                placeholder="Enter your search term..." />
+            <input type="submit" value="Google Search">
+            <a href="image.html">Image Search</a>
+            <a href="advanced.html">Advanced Search</a>
+            <br />
+            <a id="lucky-btn" href="#" onclick="feelingLucky()">I'm Feeling Lucky</a>
+        </form>
+    </div>
+    <script>
+        function feelingLucky() {
+            // Get the value of the search query
+            var searchQuery = document.getElementById("search-query").value;
+
+            // Replace the placeholder in the "I’m Feeling Lucky" link
+            var luckyLink = "https://www.google.com/search?q=" + encodeURIComponent(searchQuery) + "&btnI=1";
+            document.getElementById("lucky-btn").href = luckyLink;
+
+            // redirect user
+            window.location.href = luckyLink;
+        }
+    </script>
+</body>
+
+</html>
